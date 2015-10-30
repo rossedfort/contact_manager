@@ -14,7 +14,7 @@ class PhoneNumbersController < ApplicationController
 
   # GET /phone_numbers/new
   def new
-    @phone_number = PhoneNumber.new
+    @phone_number = PhoneNumber.new(person_id: params[:person_id])
   end
 
   # GET /phone_numbers/1/edit
@@ -25,7 +25,6 @@ class PhoneNumbersController < ApplicationController
   # POST /phone_numbers.json
   def create
     @phone_number = PhoneNumber.new(phone_number_params)
-
     respond_to do |format|
       if @phone_number.save
         format.html { redirect_to @phone_number.person, notice: 'Phone number was successfully created.' }

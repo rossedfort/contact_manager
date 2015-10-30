@@ -42,7 +42,7 @@ RSpec.describe PhoneNumbersController, type: :controller do
   end
 
   describe "POST #create" do
-    context "with valid params" do
+    describe "with valid params" do
       let(:alice) { Person.create(first_name: 'Alice', last_name: 'Smith') }
       let(:valid_attributes) { {number: '555-1234', person_id: alice.id} }
 
@@ -85,12 +85,12 @@ RSpec.describe PhoneNumbersController, type: :controller do
       let(:valid_attributes) { {number: '555-5678', person_id: bob.id} }
       let(:new_attributes) { {number: 'MyNewString', person_id: bob.id} }
 
-      xit "updates the requested phone_number" do
+      it "updates the requested phone_number" do
         phone_number = PhoneNumber.create! valid_attributes
         put :update, {:id => phone_number.to_param, :phone_number => new_attributes}, valid_session
         phone_number.reload
         expect(phone_number.number).to eq('MyNewString')
-        expect(phone_number.person_id).to eq(2)
+        expect(phone_number.person_id).to eq(bob.id)
       end
 
       it "assigns the requested phone_number as @phone_number" do
