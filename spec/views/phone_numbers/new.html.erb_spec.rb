@@ -10,11 +10,8 @@ RSpec.describe "phone_numbers/new", type: :view do
 
   it "renders new phone_number form" do
     render
-
     assert_select "form[action=?][method=?]", phone_numbers_path, "post" do
-
       assert_select "input#phone_number_number[name=?]", "phone_number[number]"
-
       assert_select "input#phone_number_person_id[name=?]", "phone_number[person_id]"
     end
   end
