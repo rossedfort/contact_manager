@@ -21,4 +21,8 @@ RSpec.describe Company, type: :model do
     expect(phone_number.number).to eq('9087634211')
   end
 
+  it "responds with its email addresses after they're created" do
+    email_address = company.email_addresses.build(address: 'whatever@company.com')
+    expect(email_address.address).to eq('whatever@company.com')
+  end
 end
