@@ -16,4 +16,9 @@ RSpec.describe Company, type: :model do
     expect(company.phone_numbers).to eq([])
   end
 
+  it "responds with its phone numbers after they're created" do
+    phone_number = company.phone_numbers.build(number: '9087634211')
+    expect(phone_number.number).to eq('9087634211')
+  end
+
 end
