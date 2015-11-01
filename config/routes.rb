@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'people#index'
+  root 'welcome#index'
 
   resources :companies
   resources :email_addresses

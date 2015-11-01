@@ -1,0 +1,60 @@
+<div class="center">
+  <h1>Welcome To Contact Manager!</h1>
+</div><br><br>
+
+<div class="row">
+  <div class="col s6">
+    <% @companies.each do |company| %>
+    <table class="bordered highlight">
+      <thead class="blue">
+        <th colspan="12">
+          <%= link_to company.name, company_path(company) %>
+        </th>
+      </thead>
+      <tbody>
+        <tr>
+          <% company.email_addresses.each do |address| %>
+          <td>
+            <%= address.address %>
+          </td>
+          <% end %>
+        </tr>
+        <tr>
+          <% company.phone_numbers.each do |number| %>
+          <td>
+            <%= number.number %>
+          </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table><br><br>
+    <% end %>
+  </div>
+  <div class="col s6">
+    <% @people.each do |person| %>
+    <table class="bordered highlight">
+      <thead class="blue">
+        <th colspan="12">
+          <%= link_to person.first_name, person_path(person) %> <%= link_to person.last_name, person_path(person) %>
+        </th>
+      </thead>
+      <tbody>
+        <tr>
+          <% person.email_addresses.each do |address| %>
+          <td>
+            <%= address.address %>
+          </td>
+          <% end %>
+        </tr>
+        <tr>
+          <% person.phone_numbers.each do |number| %>
+          <td>
+            <%= number.number %>
+          </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table><br><br>
+    <% end %>
+  </div>
+</div>
