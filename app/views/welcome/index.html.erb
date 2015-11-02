@@ -6,7 +6,7 @@
   <div class="col s6">
     <% @companies.each do |company| %>
     <table class="bordered highlight">
-      <thead class="blue">
+      <thead class="grey">
         <th colspan="12">
           <%= link_to company.name, company_path(company) %>
         </th>
@@ -33,7 +33,7 @@
   <div class="col s6">
     <% @people.each do |person| %>
     <table class="bordered highlight">
-      <thead class="blue">
+      <thead class="grey">
         <th colspan="12">
           <%= link_to person.first_name, person_path(person) %> <%= link_to person.last_name, person_path(person) %>
         </th>
